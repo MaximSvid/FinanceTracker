@@ -15,9 +15,10 @@ struct HomeView: View {
             AllMoney()
             ListWalletHomeView(wallet: wallets)
             CategoryView()
+            Spacer()
             AddNewCategory()
             
-            Spacer()
+            
         }
     }
 }

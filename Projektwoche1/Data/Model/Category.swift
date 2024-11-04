@@ -20,7 +20,4 @@ class Category: Identifiable {
         self.name = name
         self.icon = icon
     }
-    
-    
-    
 }
