@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  WalletView.swift
 //  Projektwoche1
 //
 //  Created by Maxim Svidrak on 04.11.24.
@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct WalletView: View {
+    
     var body: some View {
         VStack {
-            AllMoney()
+            AddNewWallet()
             ListWalletView()
-            
-            Spacer()
         }
+//        .background(.gray.opacity(0.2))
     }
 }
 
 #Preview {
-    HomeView()
+    WalletView()
 }

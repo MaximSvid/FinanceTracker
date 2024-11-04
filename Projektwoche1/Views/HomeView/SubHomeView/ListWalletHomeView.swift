@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ListWalletView: View {
+struct ListWalletHomeView: View {
     var body: some View {
         VStack {
             HStack {
@@ -38,5 +38,5 @@ struct ListWalletView: View {
 }
 
 #Preview {
-    ListWalletView()
+    ListWalletHomeView()
 }

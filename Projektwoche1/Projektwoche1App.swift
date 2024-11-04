@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Projektwoche1App: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: [
+                    Wallet.self
+                ])
         }
     }
+}
+#Preview {
+    let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Wallet.self, configurations: configuration)
+    ContentView().modelContainer(container)
 }

@@ -13,14 +13,14 @@ class Wallet {
     var name: String = ""
     var image: String = ""
     var balance: Double = 0.0
-    var WalletDescription: String = ""
+//    var WalletDescription: String = ""
     var catecogires: [Category] = []
     
-    init(name: String, image: String, balance: Double, WalletDescription: String) {
+    init(name: String, image: String, balance: Double) {
         self.name = name
         self.image = image
         self.balance = balance
-        self.WalletDescription = WalletDescription
+//        self.WalletDescription = WalletDescription
     }
     
 //    func addNewCategory(category: Category) {
