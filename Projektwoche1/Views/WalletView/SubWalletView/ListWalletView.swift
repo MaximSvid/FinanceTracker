@@ -19,18 +19,15 @@ struct ListWalletView: View {
                     .font(.title.bold())
                     .padding(.leading)
             }
+            Divider()
+            
             List(wallets, id: \.id) { wallet in
-                HStack {
-                    Image(systemName: wallet.image)
-                    
-                    VStack {
-                        Text(wallet.name)
-                        
-                        Text(wallet.balance.formatted())
-                    }
-                }
+                ListWalletUniversalView(wallet: wallet)
                 
             }
+            .listRowSeparator(.hidden)
+            .background(Color.clear)
+            .listStyle(PlainListStyle())
         }
     }
 }

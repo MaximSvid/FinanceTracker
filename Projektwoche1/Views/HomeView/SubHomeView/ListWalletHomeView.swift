@@ -8,35 +8,38 @@
 import SwiftUI
 
 struct ListWalletHomeView: View {
+    
+    var wallet: [Wallet]
+    
     var body: some View {
-        VStack {
-            HStack {
-                Image(systemName: "bar.chart")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 40, height: 40)
-                    .foregroundStyle(.green)
-                    .background(Color.blue) // фоновый цвет для выделения
-                    .clipShape(Circle())    // делает изображение круглым
-                    .overlay(Circle().stroke(Color.white, lineWidth: 2)) // белая обводка
-                    .shadow(radius: 5)
-                
-                VStack (alignment: .leading){
-                    Text("Wallet1")
-                    
-                    Text("1200 Euro")
+        
+        ScrollView (.horizontal, showsIndicators: false){
+            HStack(spacing: 20) {
+                ForEach (wallet, id: \.id) { wall in
+                    HStack {
+                        Image(systemName: wall.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                            .foregroundStyle(.green)
+                            .background(Color.blue)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                            .shadow(radius: 5)
+                        
+                        VStack (alignment: .leading){
+                            Text(wall.name)
+                            
+                            Text(wall.balance.formatted())
+                        }
+                    }
                 }
-            }
-            
+            }   
         }
-        .frame(maxWidth: 150, maxHeight: 70)
-        .background(RoundedRectangle(cornerRadius: 10)
-            .fill(.white)
-        )
-        .shadow(color: .gray.opacity(0.3), radius: 10)
+        
     }
 }
 
 #Preview {
-    ListWalletHomeView()
+    ListWalletHomeView(wallet: [Wallet(name: "", image: "", balance: 0.0)])
 }

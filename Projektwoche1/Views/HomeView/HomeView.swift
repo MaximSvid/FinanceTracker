@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
+    @Query private var wallets: [Wallet]
     var body: some View {
         VStack {
             AllMoney()
-            ListWalletHomeView()
+            ListWalletHomeView(wallet: wallets)
             CategoryView()
             AddNewCategory()
             

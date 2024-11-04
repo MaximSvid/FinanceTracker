@@ -17,16 +17,16 @@ struct CategoryView: View {
             LazyVGrid(columns: columns, spacing: 20) {
                 ForEach(categories.indices, id: \.self) { index in
                     Circle()
-                        .fill(Color.blue)                // Цвет круга
-                        .frame(width: 60, height: 60)    // Размер круга
+                        .fill(Color.blue)
+                        .frame(width: 60, height: 60)    
                         .overlay(
                             Image(systemName: categories[index])
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 30, height: 30)
-                                .foregroundColor(.white)   // Цвет иконки
+                                .foregroundColor(.white)
                         )
-                        .shadow(radius: 3)              // Добавление небольшой тени
+                        .shadow(radius: 3)
                 }
             }
             .padding(20) // Отступы вокруг сетки
