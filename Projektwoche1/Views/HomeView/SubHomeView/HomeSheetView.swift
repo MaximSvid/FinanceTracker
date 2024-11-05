@@ -137,6 +137,9 @@ struct HomeSheetView: View {
         }
         wallet.balance -= amount
         
+        let transaction = Transaction(id: UUID(), amount: amount, category: Category(id: UUID(), name: categoryName, icon: categoryImage))
+        wallet.transactions.append(transaction)
+        
         context.insert(wallet)
         
         walletBalanceString = ""

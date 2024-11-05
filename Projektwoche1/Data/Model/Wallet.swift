@@ -15,6 +15,7 @@ class Wallet {
     var balance: Double = 0.0
 //    var WalletDescription: String = ""
     var catecogires: [Category] = []
+    var transactions: [Transaction] = []
     
     init(name: String, image: String, balance: Double) {
         self.name = name
