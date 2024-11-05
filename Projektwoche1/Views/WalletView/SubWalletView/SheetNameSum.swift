@@ -11,7 +11,7 @@ struct SheetNameSum: View {
     
     @Binding var walletName: String
     @Binding var walletBalance: Double
-    @State var walletBalanceString: String = ""
+    @State private var walletBalanceString: String = ""
     
     var body: some View {
         VStack {

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CategoryView: View {
+    
     let categories: [Category] = [
         Category(id: UUID(), name: "Food", icon: "fork.knife"),
         Category(id: UUID(), name: "Shopping", icon: "cart.fill"),
@@ -31,11 +32,14 @@ struct CategoryView: View {
         Category(id: UUID(), name: "Miscellaneous", icon: "questionmark.circle.fill")
     ]
     
+    var wallets: [Wallet]
+    
     
     @State private var isHomeSheetOpen: Bool = false
     @State private var selectedCategory: Category?
     
-    @State private var categoryName: String = ""
+//    @State private var categoryName: String = ""
+//    @State private var categoryIcon: String = ""
     
     
     
@@ -59,8 +63,7 @@ struct CategoryView: View {
                         .shadow(radius: 3)
                         .onTapGesture {
                             selectedCategory = category
-                            isHomeSheetOpen.toggle()
-                                
+                            isHomeSheetOpen = true
                         }
                 }
                 
@@ -68,8 +71,8 @@ struct CategoryView: View {
             .padding(20) // Отступы вокруг сетки
             .sheet(isPresented: $isHomeSheetOpen) {
                 if let category = selectedCategory {
-                    HomeSheetView(isHomeSheetPresented: $isHomeSheetOpen, categoryName: category.name)
-                        .presentationDetents([.fraction(0.8)])
+                    HomeSheetView(wallets: wallets, isHomeSheetPresented: $isHomeSheetOpen, categoryName: category.name, categoryImage: category.icon)
+                        .presentationDetents([.fraction(0.6)])
                         .presentationDragIndicator(.visible)
                 }
             }
@@ -79,5 +82,5 @@ struct CategoryView: View {
 }
 
 #Preview {
-    CategoryView()
+    CategoryView(wallets: [Wallet(name: "", image: "", balance: 0.0)])
 }

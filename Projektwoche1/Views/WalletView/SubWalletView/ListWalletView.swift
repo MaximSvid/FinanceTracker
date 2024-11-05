@@ -23,6 +23,7 @@ struct ListWalletView: View {
             
             List(wallets, id: \.id) { wallet in
                 ListWalletUniversalView(wallet: wallet)
+                    .listRowSeparator(.hidden)
                 
             }
             .listRowSeparator(.hidden)

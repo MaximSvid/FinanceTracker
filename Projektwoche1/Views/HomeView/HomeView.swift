@@ -14,7 +14,7 @@ struct HomeView: View {
         VStack {
             AllMoney()
             ListWalletHomeView(wallet: wallets)
-            CategoryView()
+            CategoryView(wallets: wallets)
             Spacer()
             AddNewCategory()
             
