@@ -135,6 +135,8 @@ struct HomeSheetView: View {
         guard let wallet = selectedWallet, let amount = Double(walletBalanceString) else {
             return print("Invalid amount")
         }
+        wallet.balance -= amount
+        
         context.insert(wallet)
         
         walletBalanceString = ""
