@@ -22,6 +22,8 @@ struct HomeSheetView: View {
     @State private var walletBalanceString: String = ""
     @State private var selectedWallet: Wallet?
     
+    @Binding var selectedCategory: Category?
+    
     
     var body: some View {
         HStack {
@@ -110,7 +112,7 @@ struct HomeSheetView: View {
             VStack {
                 Button {
                     saveWalletBalance()
-                    isHomeSheetPresented = false
+//                    isHomeSheetPresented.toggle()
                 } label: {
                     Text ("Save")
                         .frame(maxWidth: .infinity)
@@ -144,7 +146,10 @@ struct HomeSheetView: View {
         context.insert(transaction)
         
         walletBalanceString = ""
-    }
+        
+        selectedCategory = nil
+        
+            }
 }
 
 #Preview {

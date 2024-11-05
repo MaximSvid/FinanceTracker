@@ -70,7 +70,7 @@ struct CategoryView: View {
             }
             .padding(20) 
             .sheet(item: $selectedCategory) { category in
-                    HomeSheetView(wallets: wallets, isHomeSheetPresented: $isHomeSheetOpen, categoryName: category.name, categoryImage: category.icon)
+                HomeSheetView(wallets: wallets, isHomeSheetPresented: $isHomeSheetOpen, categoryName: category.name, categoryImage: category.icon, selectedCategory: $selectedCategory)
                         .presentationDetents([.fraction(0.6)])
                         .presentationDragIndicator(.visible)
                 }

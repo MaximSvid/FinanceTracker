@@ -12,7 +12,7 @@ struct HomeView: View {
     @Query private var wallets: [Wallet]
     var body: some View {
         VStack {
-            AllMoney()
+            AllMoney(wallet: wallets)
             ListWalletHomeView(wallet: wallets)
             CategoryView(wallets: wallets)
             Spacer()
