@@ -14,7 +14,9 @@ struct Projektwoche1App: App {
         WindowGroup {
             ContentView()
                 .modelContainer(for: [
-                    Wallet.self
+                    Wallet.self,
+                    Category.self,
+                    Transaction.self
                 ])
         }
     }

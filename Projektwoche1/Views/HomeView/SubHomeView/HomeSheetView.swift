@@ -141,6 +141,7 @@ struct HomeSheetView: View {
         wallet.transactions.append(transaction)
         
         context.insert(wallet)
+        context.insert(transaction)
         
         walletBalanceString = ""
     }

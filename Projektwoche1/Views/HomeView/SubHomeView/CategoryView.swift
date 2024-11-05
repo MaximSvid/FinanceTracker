@@ -68,14 +68,13 @@ struct CategoryView: View {
                 }
                 
             }
-            .padding(20) // Отступы вокруг сетки
-            .sheet(isPresented: $isHomeSheetOpen) {
-                if let category = selectedCategory {
+            .padding(20) 
+            .sheet(item: $selectedCategory) { category in
                     HomeSheetView(wallets: wallets, isHomeSheetPresented: $isHomeSheetOpen, categoryName: category.name, categoryImage: category.icon)
                         .presentationDetents([.fraction(0.6)])
                         .presentationDragIndicator(.visible)
                 }
-            }
+            
             
     }
     
