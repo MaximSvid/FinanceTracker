@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct SheetDeleteCategory: View {
+    @Environment(\.modelContext) private var modelContext
     @Binding var isSheetDeleteCategoryPresented: Bool
-    @Binding var category: [Category]
+    @Binding var categories: [Category]
     
     
     var body: some View {
@@ -31,7 +32,7 @@ struct SheetDeleteCategory: View {
                             .font(.title)
                             .padding(.top)
                         
-                        List(category, id: \.self) { categor in
+                        List(categories, id: \.self) { categor in
                             HStack {
                                 Image(systemName: categor.icon)
                                     .frame(maxWidth: 45, maxHeight: 45)
@@ -40,16 +41,29 @@ struct SheetDeleteCategory: View {
                                 Text(categor.name)
                                     .font(.headline)
                             }
+                            .swipeActions {
+                                Button(role: .destructive) {
+                                    deleteCategory(categor)
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                        }
+                        
                         }
                         .listStyle(PlainListStyle())
                         
                     }
                     .presentationDragIndicator(.visible)
-//                    SheetNewWalletView(isSheetPresented: $isSheetPresented, newWalletIcon: $walletImage, walletName: $walletName, walletBalance: $walletBalance)
-//                        .presentationDetents([.fraction(0.8)])
-//                        .presentationDragIndicator(.visible)
                 }
             }
+        }
+    }
+    
+    private func deleteCategory(_ category: Category) {
+        modelContext.delete(category)
+        
+        if let index = categories.firstIndex(where: { $0.id == category.id}) {
+            categories.remove(at: index)
         }
     }
 }
