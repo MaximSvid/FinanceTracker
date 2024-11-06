@@ -10,6 +10,7 @@ import SwiftData
 
 struct HomeView: View {
     @Query private var wallets: [Wallet]
+    @State private var isSheetDeleteCategoryPresented: Bool = false
     @State private var categories: [Category] = [
             Category(id: UUID(), name: "Food", icon: "fork.knife"),
             Category(id: UUID(), name: "Shopping", icon: "cart.fill"),
@@ -35,6 +36,7 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
+            SheetDeleteCategory(isSheetDeleteCategoryPresented: $isSheetDeleteCategoryPresented, category: $categories)
             AllMoney(wallet: wallets)
             ListWalletHomeView(wallet: wallets)
             CategoryView(wallets: wallets, categories: $categories)
