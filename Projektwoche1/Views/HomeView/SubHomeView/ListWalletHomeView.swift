@@ -13,7 +13,7 @@ struct ListWalletHomeView: View {
     
     var body: some View {
         
-        Divider()
+        
         
         ScrollView (.horizontal, showsIndicators: false){
             HStack(spacing: 10) {
@@ -64,33 +64,3 @@ struct ListWalletHomeView: View {
                                ]
     )
 }
-/*
- VStack {
-     HStack {
-         Image(systemName: wall.image)
-//                            Image("money1")
-             .resizable()
-             .scaledToFit()
-             .frame(width: 40, height: 40)
-//                                .foregroundStyle(.green)
-             .clipShape(Circle())
-         
-         Spacer()
-     }
-     
-     HStack {
-         VStack (alignment: .leading){
-             Text(wall.name)
-             
-             Text(wall.balance.formatted())
-             
-             Spacer()
-         }
-     }
-     
-    
- }
- .frame(width: 200, height: 80)
- .background(RoundedRectangle(cornerRadius: 10).fill(.white))
- .shadow(color: .blue, radius: 10, x: 0, y: 0)
- */

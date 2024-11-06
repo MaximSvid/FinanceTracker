@@ -13,28 +13,27 @@ struct ListWalletView: View {
     @Query private var wallets: [Wallet]
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                HStack {
-                    Text("Wallets")
-                        .font(.title.bold())
-                        .padding(.leading)
-                }
-                Divider()
-                
-                List(wallets, id: \.id) { wallet in
-                    NavigationLink(destination: WalletDetailView(wallet: wallet)) {
-                        ListWalletUniversalView(wallet: wallet)
-                    }
-                    
-                        .listRowSeparator(.hidden)
-                    
+        VStack {
+            HStack {
+                Text("Wallets")
+                    .font(.title.bold())
+                    .padding(.leading)
+            }
+            Divider()
+            
+            
+            List(wallets, id: \.id) { wallet in
+                NavigationLink(destination: WalletDetailView(wallet: wallet)) {
+                    ListWalletUniversalView(wallet: wallet)
                 }
                 .listRowSeparator(.hidden)
-                .background(Color.clear)
-                .listStyle(PlainListStyle())
+                
             }
+            .listRowSeparator(.hidden)
+            .background(Color.clear)
+            .listStyle(PlainListStyle())
         }
+        
         
     }
 }

@@ -20,14 +20,34 @@ struct SheetNewWalletView: View {
     
     
     var walletIcons = [
-        "creditcard",
-        "wallet.pass",
         "dollarsign.circle",
         "eurosign.circle",
         "bitcoinsign.circle",
-        "banknote",
         "yensign.circle",
-        "sterlingsign.circle"
+        "sterlingsign.circle",
+        "rublesign.circle",
+        "indianrupeesign.circle",
+        "won.circle",
+        "florinsign.circle",
+        "francsign.circle",
+        "lirasign.circle",
+        "pesetasign.circle",
+        "pesosign.circle",
+        "shekelsign.circle",
+        "dongsign.circle",
+        "tugriksign.circle",
+        "bahtsign.circle",
+        "kipsign.circle",
+        "rupeesign.circle",
+        "rial.circle",
+        "creditcard.circle",
+        "creditcard.circle.fill",
+        "banknote.circle",
+        "banknote.circle.fill",
+        "wallet.pass.circle",
+        "wallet.pass.circle.fill",
+        "giftcard.circle",
+        "giftcard.circle.fill"
     ]
     
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()),GridItem(.flexible()),]

@@ -12,7 +12,7 @@ import SwiftData
 struct Projektwoche1App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppNavigation()
                 .modelContainer(for: [
                     Wallet.self,
                     Category.self,
@@ -21,8 +21,8 @@ struct Projektwoche1App: App {
         }
     }
 }
-#Preview {
-    let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: Wallet.self, configurations: configuration)
-    ContentView().modelContainer(container)
-}
+//#Preview {
+//    let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
+//    let container = try! ModelContainer(for: Wallet.self, Category.self,  configurations: configuration)
+//    ContentView().modelContainer(container)
+//}

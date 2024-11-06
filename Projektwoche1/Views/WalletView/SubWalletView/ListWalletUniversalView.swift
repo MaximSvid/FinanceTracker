@@ -43,7 +43,7 @@ struct ListWalletUniversalView: View {
         .background(RoundedRectangle(cornerRadius: 10)
             .fill(.white))
         .shadow(color: .gray.opacity(0.3), radius: 10)
-        .padding(.bottom)
+//        .padding(.bottom)
     }
 }
 

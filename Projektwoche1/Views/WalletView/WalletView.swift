@@ -10,11 +10,14 @@ import SwiftUI
 struct WalletView: View {
     
     var body: some View {
-        VStack {
-            AddNewWallet()
-            ListWalletView()
+        NavigationStack {
+            VStack {
+                AddNewWallet()
+                ListWalletView()
+            }
+
         }
-//        .background(.gray.opacity(0.2))
+        //        .background(.gray.opacity(0.2))
     }
 }
 
