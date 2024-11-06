@@ -13,8 +13,9 @@ class Wallet {
     var name: String = ""
     var image: String = ""
     var balance: Double = 0.0
+    
+    @Relationship(deleteRule: .cascade) var transactions: [MyTransaction] = []
     var catecogires: [Category] = []
-    var transactions: [MyTransaction] = []
     
     init(name: String, image: String, balance: Double) {
         self.name = name

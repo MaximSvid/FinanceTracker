@@ -13,6 +13,8 @@ class MyTransaction: Identifiable {
     var id: UUID = UUID()
     var amount: Double = 0.0
     var date: Date = Date()
+    @Relationship var wallet: Wallet?
+    
     var category: Category
     
     init(id: UUID, amount: Double, category: Category) {
