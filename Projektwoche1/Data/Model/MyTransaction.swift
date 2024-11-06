@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 @Model
-class Transaction: Identifiable {
+class MyTransaction: Identifiable {
     var id: UUID = UUID()
     var amount: Double = 0.0
     var date: Date = Date()

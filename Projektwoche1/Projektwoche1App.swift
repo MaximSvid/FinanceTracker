@@ -16,7 +16,7 @@ struct Projektwoche1App: App {
                 .modelContainer(for: [
                     Wallet.self,
                     Category.self,
-                    Transaction.self
+                    MyTransaction.self
                 ])
         }
     }

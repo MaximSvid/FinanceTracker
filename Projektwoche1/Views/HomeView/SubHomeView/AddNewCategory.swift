@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct AddNewCategory: View {
+    @State var isSheetNewCategoryPresented: Bool = false
+    @Binding var categories: [Category]
+    
     var body: some View {
         VStack {
+            
+            
             Button(action: {
-//                saveJob()
-//                presentationMode.wrappedValue.dismiss()
+                isSheetNewCategoryPresented.toggle()
             }) {
                 
                 Text("Add New Category")
@@ -23,6 +27,10 @@ struct AddNewCategory: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
+            .sheet(isPresented: $isSheetNewCategoryPresented) {
+                SheetAddNewCategory(isSheetNewCategoryPresented: $isSheetNewCategoryPresented, categories: $categories)
+                    .presentationDragIndicator(.visible)
+            }
         }
         .padding(.leading)
         .padding(.trailing)
@@ -31,5 +39,5 @@ struct AddNewCategory: View {
 
 
 #Preview {
-    AddNewCategory()
+    AddNewCategory(categories: .constant([]))
 }

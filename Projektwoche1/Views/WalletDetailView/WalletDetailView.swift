@@ -10,7 +10,7 @@ import SwiftData
 
 struct WalletDetailView: View {
     var wallet: Wallet
-    @Query private var transactions: [Transaction]
+    @Query private var transactions: [MyTransaction]
     
 //    init(wallet: Wallet) {
 //        self.wallet = wallet

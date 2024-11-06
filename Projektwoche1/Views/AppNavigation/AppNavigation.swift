@@ -28,6 +28,6 @@ struct AppNavigation: View {
 
 #Preview {
     let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: Wallet.self, configurations: configuration)
+    let container = try! ModelContainer(for: Wallet.self, Category.self, MyTransaction.self, configurations: configuration)
     AppNavigation().modelContainer(container)
 }

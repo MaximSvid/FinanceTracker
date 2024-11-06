@@ -17,7 +17,7 @@ struct WalletView: View {
             }
 
         }
-        //        .background(.gray.opacity(0.2))
+       
     }
 }
 

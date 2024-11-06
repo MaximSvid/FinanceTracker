@@ -13,7 +13,6 @@ struct SheetNewWalletView: View {
     @Environment(\.modelContext) private var context
     @Binding var isSheetPresented: Bool
     @Binding var newWalletIcon: String
-//    @Binding var descriptionOfExpenditures: String
     
     @Binding var walletName: String
     @Binding var walletBalance: Double
@@ -25,11 +24,6 @@ struct SheetNewWalletView: View {
         "bitcoinsign.circle",
         "yensign.circle",
         "sterlingsign.circle",
-        "rublesign.circle",
-        "indianrupeesign.circle",
-        "won.circle",
-        "florinsign.circle",
-        "francsign.circle",
         "lirasign.circle",
         "pesetasign.circle",
         "pesosign.circle",
@@ -40,17 +34,12 @@ struct SheetNewWalletView: View {
         "kipsign.circle",
         "rupeesign.circle",
         "rial.circle",
-        "creditcard.circle",
-        "creditcard.circle.fill",
         "banknote.circle",
         "banknote.circle.fill",
-        "wallet.pass.circle",
-        "wallet.pass.circle.fill",
-        "giftcard.circle",
-        "giftcard.circle.fill"
+       
     ]
     
-    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()),GridItem(.flexible()),]
+//    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()),GridItem(.flexible())]
     
     var body: some View {
         VStack {
@@ -77,7 +66,7 @@ struct SheetNewWalletView: View {
                                 .padding()
                                 .background(RoundedRectangle(cornerRadius: 10)
                                     .fill(.white))
-//                                .shadow(color: .gray.opacity(0.3), radius: 10)
+
                                 .onTapGesture {
                                     newWalletIcon = walletIcon
                                 }
