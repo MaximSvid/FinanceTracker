@@ -31,6 +31,13 @@ struct WalletDetailView: View {
                     Text(transaction.category.name)
                     Text(transaction.date, style: .date)
                 }
+                .swipeActions {
+                    Button(role: .destructive) {
+                        transaction.deleteTransaction()
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                }
             }
         }
     }

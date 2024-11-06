@@ -22,4 +22,8 @@ class MyTransaction: Identifiable {
         self.amount = amount
         self.category = category
     }
+    
+    func deleteTransaction() {
+        modelContext?.delete(self)
+    }
 }
