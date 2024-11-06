@@ -29,6 +29,7 @@ struct AddNewCategory: View {
             }
             .sheet(isPresented: $isSheetNewCategoryPresented) {
                 SheetAddNewCategory(isSheetNewCategoryPresented: $isSheetNewCategoryPresented, categories: $categories)
+                    .presentationDetents([.fraction(0.5)])
                     .presentationDragIndicator(.visible)
             }
         }

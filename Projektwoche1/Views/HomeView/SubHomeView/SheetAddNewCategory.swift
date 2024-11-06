@@ -56,6 +56,7 @@ struct SheetAddNewCategory: View {
             
             Text ("Add new Category")
                 .font(.title)
+                .padding(.bottom)
             
             VStack {
                 HStack {
@@ -65,6 +66,7 @@ struct SheetAddNewCategory: View {
                 }
                 
             }
+            Divider()
             
             ScrollView (.horizontal, showsIndicators: false) {
                 HStack (spacing: 10) {
@@ -85,6 +87,8 @@ struct SheetAddNewCategory: View {
                     }
                 }
             }
+            
+            Divider()
             
             HStack {
                 Text("Category name")

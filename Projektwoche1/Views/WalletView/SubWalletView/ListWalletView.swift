@@ -25,6 +25,13 @@ struct ListWalletView: View {
             List(wallets, id: \.id) { wallet in
                 NavigationLink(destination: WalletDetailView(wallet: wallet)) {
                     ListWalletUniversalView(wallet: wallet)
+                        .swipeActions {
+                            Button(role: destructive) {
+                                wallet.deleteWallet()
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
                 }
                 .listRowSeparator(.hidden)
                 

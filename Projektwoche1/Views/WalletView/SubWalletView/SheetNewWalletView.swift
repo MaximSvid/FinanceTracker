@@ -54,6 +54,7 @@ struct SheetNewWalletView: View {
                     Spacer()
                 }
                 
+                Divider()
                 
                 ScrollView (.horizontal, showsIndicators: false) {
                     HStack (spacing: 10) {
@@ -74,6 +75,8 @@ struct SheetNewWalletView: View {
                         }
                     }
                 }
+                
+                Divider()
                 
                 SheetNameSum(walletName: $walletName, walletBalance: $walletBalance)
                 

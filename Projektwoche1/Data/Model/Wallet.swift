@@ -13,7 +13,6 @@ class Wallet {
     var name: String = ""
     var image: String = ""
     var balance: Double = 0.0
-//    var WalletDescription: String = ""
     var catecogires: [Category] = []
     var transactions: [MyTransaction] = []
     
@@ -21,10 +20,10 @@ class Wallet {
         self.name = name
         self.image = image
         self.balance = balance
-//        self.WalletDescription = WalletDescription
     }
     
-//    func addNewCategory(category: Category) {
-//        modelContext?.append(self)
-//    }
+    func deleteWallet () {
+        modelContext?.delete(self)
+    }
+    
 }
