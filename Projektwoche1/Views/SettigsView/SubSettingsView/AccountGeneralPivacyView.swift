@@ -20,43 +20,47 @@ struct AccountGeneralPivacyView: View {
 //    @AppStorage("language") var language: String = ""
     @State private var selectedLanguage: Language = .english
     
+//    @Environment(\.colorScheme) var colorScheme
     @AppStorage("darkMode") var darkMode: Bool = false
     @AppStorage("showNotifications") var showNotifications: Bool = false
     
     var body: some View {
-        List {
-            
-            HStack {
-                Spacer()
-                ImageSettingsView1()
-                Spacer()
-            }
-            .listRowSeparator(.hidden)
-
-            
-            Section(header: Text("Account")) {
-                TextField("Username", text: $username)
-                TextField("Email", text: $userEmail)
-                TextField("Phone number", text: $phoneNumber)
-                    .keyboardType(.numberPad)
-                SecureField("Password", text: $password)
-            }
-            
-            Section(header: Text("General")) {
-                Picker("Language", selection: $selectedLanguage) {
-                    ForEach(Language.allCases) { language in
-                        Text(language.rawValue).tag(language)
-                    }
+        
+            List {
+                
+                HStack {
+                    Spacer()
+                    ImageSettingsView1()
+                    Spacer()
+                }
+                .listRowSeparator(.hidden)
+                
+                
+                Section(header: Text("Account")) {
+                    TextField("Username", text: $username)
+                    TextField("Email", text: $userEmail)
+                    TextField("Phone number", text: $phoneNumber)
+                        .keyboardType(.numberPad)
+                    SecureField("Password", text: $password)
                 }
                 
-                Toggle("Dark Mode", isOn: $darkMode)
-                Toggle("Show Notifications", isOn: $showNotifications)
-                
-                
+                Section(header: Text("General")) {
+                    Picker("Language", selection: $selectedLanguage) {
+                        ForEach(Language.allCases) { language in
+                            Text(language.rawValue).tag(language)
+                        }
+                    }
+                    
+                    Toggle("Dark Mode", isOn: $darkMode)
+                    Toggle("Show Notifications", isOn: $showNotifications)
+                    
+                }
                 
             }
-        }
-        .listStyle(PlainListStyle())
+            .listStyle(PlainListStyle())
+        
+        .preferredColorScheme(darkMode ? .dark : .light)
+
     }
 }
 
