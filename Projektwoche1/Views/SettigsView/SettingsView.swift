@@ -10,17 +10,19 @@ import SwiftData
 
 
 struct SettingsView: View {
-  
-  var body: some View {
-          List {
-              
-          }
-          .listStyle(PlainListStyle())
-      
-  }
+    
+    var body: some View {
+        VStack {
+            AccountGeneralPivacyView()
+            
+        }
+        
+
+        
+    }
 }
 
 
 #Preview {
-  SettingsView()
+    SettingsView()
 }

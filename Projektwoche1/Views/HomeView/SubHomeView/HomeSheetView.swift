@@ -153,5 +153,5 @@ struct HomeSheetView: View {
 }
 
 #Preview {
-    //    HomeSheetView(isHomeSheetPresented: .constant(true ), categoryName: "")
+//        HomeSheetView()
 }

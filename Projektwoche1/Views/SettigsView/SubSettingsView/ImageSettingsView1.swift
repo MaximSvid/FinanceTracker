@@ -18,19 +18,25 @@ struct ImageSettingsView1: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Text("Settings")
+                    .font(.title.bold())
+                    .padding(.leading)
+            }
+            Divider()
             
             if let selectedImage = selectedImage {
                 selectedImage
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 180, height: 200)
+                    .frame(width: 100, height: 100)
                     .clipShape(Circle())
                     .overlay(Circle().stroke(.gray.opacity(0.5), lineWidth: 2))
             } else {
                 Image("ohneImage")
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 180, height: 200)
+                    .frame(width: 100, height: 100)
                     .clipShape(Circle())
                     .overlay(Circle().stroke(.gray.opacity(0.5), lineWidth: 2))
             }
