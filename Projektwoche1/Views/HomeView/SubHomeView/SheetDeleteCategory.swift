@@ -12,6 +12,8 @@ struct SheetDeleteCategory: View {
     @Binding var isSheetDeleteCategoryPresented: Bool
     @Binding var categories: [Category]
     
+    @State private var showAlert: Bool = false
+    
     
     var body: some View {
         VStack {
@@ -51,6 +53,32 @@ struct SheetDeleteCategory: View {
                         
                         }
                         .listStyle(PlainListStyle())
+                                                
+                        Button(action: {
+                            showAlert = true
+                        }) {
+                            Text("All Deleted")
+                        }
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Delete all categories?"),
+                                primaryButton: .default(
+                                    Text("Cancel"),
+                                    action: {
+                                        showAlert = false
+                                    }
+                                ),
+                                secondaryButton: .destructive(
+                                    Text("Delete"),
+                                    action: {
+                                        showAlert = false
+                                        deleteAllCategories()
+                                    }
+                                )
+                            
+                            )
+                        }
+                        
                         
                     }
                     .presentationDragIndicator(.visible)
@@ -65,6 +93,13 @@ struct SheetDeleteCategory: View {
         if let index = categories.firstIndex(where: { $0.id == category.id}) {
             categories.remove(at: index)
         }
+    }
+    
+    private func deleteAllCategories() {
+       for category in categories {
+           modelContext.delete(category)
+        }
+        categories.removeAll()
     }
 }
 

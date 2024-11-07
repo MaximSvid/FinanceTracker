@@ -57,6 +57,9 @@ struct SheetAddNewCategory: View {
             Text ("Add new Category")
                 .font(.title)
                 .padding(.bottom)
+                .padding(.top)
+            
+          
             
             VStack {
                 HStack {
@@ -66,7 +69,7 @@ struct SheetAddNewCategory: View {
                 }
                 
             }
-            Divider()
+
             
             ScrollView (.horizontal, showsIndicators: false) {
                 HStack (spacing: 10) {
@@ -87,14 +90,16 @@ struct SheetAddNewCategory: View {
                     }
                 }
             }
-            
-            Divider()
+            .padding(.top)
+                        
             
             HStack {
                 Text("Category name")
                     .font(.subheadline)
                 Spacer()
             }
+            
+
             TextField("Category name", text: $categoryName)
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 10)

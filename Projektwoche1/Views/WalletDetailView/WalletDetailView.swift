@@ -12,14 +12,6 @@ struct WalletDetailView: View {
     var wallet: Wallet
     @Query private var transactions: [MyTransaction]
     
-//    init(wallet: Wallet) {
-//        self.wallet = wallet
-//        _transactions = Query(filter: #Predicate<Transaction> {
-//            $0.category.name == wallet.catecogires.first?.name
-//        }, sort: \.date)
-    
-    
-    
     var body: some View {
         VStack {
             Text ("Wallet: \(wallet.name)")

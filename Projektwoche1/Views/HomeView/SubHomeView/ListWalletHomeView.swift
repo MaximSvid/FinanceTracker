@@ -14,12 +14,12 @@ struct ListWalletHomeView: View {
     var body: some View {
         
         
-        
+ 
         ScrollView (.horizontal, showsIndicators: false){
             HStack(spacing: 10) {
                 ForEach (wallet, id: \.id) { wall in
                     VStack(alignment: .leading) {
-                        Image(systemName: wall.image.isEmpty ? "wallet.pass" : wall.image)
+                        Image(systemName: wall.image)
                             .resizable()
                             .scaledToFit()
                             .frame(maxWidth: 50, maxHeight: 50)
