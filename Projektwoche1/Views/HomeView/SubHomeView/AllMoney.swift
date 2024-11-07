@@ -11,19 +11,12 @@ struct AllMoney: View {
     var wallet: [Wallet]
     var body: some View {
         VStack {
-//            HStack {
-//                Text ("All the money:")
-//                    .font(.headline)
-//                Text("\(wallet.reduce(0) {$0 + $1.balance}, specifier: "%.2f") Euro")
-//            }
-//            .padding()
-            
             VStack {
                 ProgressView(value: wallet.reduce(0) {$0 + $1.balance}, total: 10000) {
-                    Text("\(wallet.reduce(0) {$0 + $1.balance}, specifier: "%.2f") Euro")
+                    Text("Total amount of money in euros: \(wallet.reduce(0) {$0 + $1.balance}, specifier: "%.2f") Euro")
                 }
-                .progressViewStyle(LinearProgressViewStyle())
             }
+            .padding()
         }
         .frame(maxWidth: .infinity)
         .background(RoundedRectangle(cornerRadius: 10).fill(.white))
