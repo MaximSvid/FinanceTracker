@@ -80,6 +80,7 @@ struct SheetAddNewCategory: View {
                             .scaledToFit()
                             .cornerRadius(10)
                             .padding()
+                            .foregroundStyle(randomColor2())
                             .background(RoundedRectangle(cornerRadius: 10)
                                 .fill(.white))
                         
@@ -135,6 +136,11 @@ struct SheetAddNewCategory: View {
         categoryName = ""
         
     }
+    
+    private func randomColor2() -> Color {
+            let colors: [Color] = [.red, .green, .blue, .yellow, .orange, .purple, .pink, .teal, .indigo]
+            return colors.randomElement() ?? .gray
+        }
 }
 
 

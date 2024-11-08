@@ -32,16 +32,17 @@ struct CategoryView: View {
             LazyVGrid(columns: columns, spacing: 24) {
                 ForEach(categories, id: \.self) { category in
                     Circle()
-                        .fill(Color.blue)
+                        .fill(Color.white)
+                        .shadow(color: .gray.opacity(0.3), radius: 10)
                         .frame(width: 60, height: 60)
                         .overlay(
                             Image(systemName: category.icon)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 30, height: 30)
-                                .foregroundColor(.white)
+                                .foregroundColor(randomColor2())
                         )
-                        .shadow(radius: 3)
+//                        .shadow(radius: 3)
                         .onTapGesture {
                             selectedCategory = category
                             isHomeSheetOpen = true
@@ -60,6 +61,13 @@ struct CategoryView: View {
                         
             
     }
+    private func randomColor() -> Color {
+        Color.init(hue: .random(in: 0...1), saturation: .random(in: 0...1), brightness: .random(in: 0...1), opacity: 1)
+    }
+    private func randomColor2() -> Color {
+            let colors: [Color] = [.red, .green, .blue, .yellow, .orange, .purple, .pink, .teal, .indigo]
+            return colors.randomElement() ?? .gray
+        }
     
 }
 
