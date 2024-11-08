@@ -19,12 +19,17 @@ struct ListWalletHomeView: View {
             HStack(spacing: 10) {
                 ForEach (wallet, id: \.id) { wall in
                     VStack(alignment: .leading) {
-                        Image(systemName: wall.image)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: 50, maxHeight: 50)
-//                            .fixedSize(horizontal: true, vertical: true)
-                            .clipShape(Circle())
+                        
+                        HStack {
+                            Image(wall.image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: 35, maxHeight: 35)
+                                .clipShape(.buttonBorder)
+                            
+                            Spacer()
+                        }
+                        
                         
                         Text(wall.name)
                             .font(.callout)

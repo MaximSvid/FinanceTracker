@@ -35,54 +35,60 @@ struct HomeSheetView: View {
                 .foregroundStyle(.blue)
         }
         .padding()
-        HStack {
-            
-            ScrollView (.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(wallets, id: \.self) { wallet in
-                        ZStack {
-                            HStack {
-                                Image(systemName: wallet.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 45, height: 45)
-                                    .background(Color.gray.opacity(0.1))
-                                    .clipShape(Circle())
-                                    .padding(.leading)
-                                
-                                HStack {
-                                    Text(wallet.name)
-                                        .font(.footnote)
-                                        .padding(.bottom, 5)
-                                    
-                                    Spacer()
-                                    HStack {
-                                        Text("\(wallet.balance.formatted()) Euro")
-                                            .font(.footnote)
-                                            .foregroundStyle(.gray)
-                                    }
-                                    
-                                }
-                            }
+        
+        ScrollView (.horizontal, showsIndicators: false){
+            HStack(spacing: 10) {
+                ForEach (wallets, id: \.id) { wallet in
+                    VStack(alignment: .leading) {
+                        
+                        HStack {
+                            Image(wallet.image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: 35, maxHeight: 35)
+                                .clipShape(.buttonBorder)
+                            
+                            Spacer()
                         }
-                        .frame(maxWidth: .infinity, maxHeight: 60)
-                        .background(RoundedRectangle(cornerRadius: 10)
-                            .fill(.white))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(selectedWallet == wallet ? Color.blue : Color.clear, lineWidth: 2)
-                        )
-                        .shadow(color: .gray.opacity(0.3), radius: 10)
-                        .onTapGesture {
-                            selectedWallet = wallet
-                        }
-                        .padding(.bottom)
+                        
+                        
+                        Text(wallet.name)
+                            .font(.callout)
+                            .foregroundStyle(.gray)
+                            .lineLimit(1)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Text("\(wallet.balance.formatted()) Euro")
+                            .font(.footnote)
+                            .lineLimit(1)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
+                    .padding()
+                    .frame(width: 150, height: 100)
+                    .background(RoundedRectangle(cornerRadius: 10)
+                        .fill(.white))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(selectedWallet == wallet ? Color.blue.opacity(0.5) : Color.clear, lineWidth: 2)
+//                            .fill(Color.white)
+                            
+                    )
+//                    .shadow(color: selectedWallet == wallet ? Color.blue.opacity(0.4) : Color.gray.opacity(0.3), radius: 10)
+                    .onTapGesture {
+                        selectedWallet = wallet
+                    }
+                    
                 }
-                
-                
             }
         }
+        .shadow(color: .gray, radius: 10, x: 0, y: 5)
+        .padding(.leading)
+        .padding(.bottom)
+
+//        Divider()
+        
+        
+
         VStack(spacing: 10) {
             
             HStack {

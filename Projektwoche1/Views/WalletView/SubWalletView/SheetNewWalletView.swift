@@ -18,28 +18,40 @@ struct SheetNewWalletView: View {
     @Binding var walletBalance: Double
     
     
+//    var walletIcons = [
+//        "dollarsign.circle",
+//        "eurosign.circle",
+//        "bitcoinsign.circle",
+//        "yensign.circle",
+//        "sterlingsign.circle",
+//        "lirasign.circle",
+//        "pesetasign.circle",
+//        "pesosign.circle",
+//        "shekelsign.circle",
+//        "dongsign.circle",
+//        "tugriksign.circle",
+//        "bahtsign.circle",
+//        "kipsign.circle",
+//        "rupeesign.circle",
+//        "rial.circle",
+//        "banknote.circle",
+//        "banknote.circle.fill",
+//       
+//    ]
+    
     var walletIcons = [
-        "dollarsign.circle",
-        "eurosign.circle",
-        "bitcoinsign.circle",
-        "yensign.circle",
-        "sterlingsign.circle",
-        "lirasign.circle",
-        "pesetasign.circle",
-        "pesosign.circle",
-        "shekelsign.circle",
-        "dongsign.circle",
-        "tugriksign.circle",
-        "bahtsign.circle",
-        "kipsign.circle",
-        "rupeesign.circle",
-        "rial.circle",
-        "banknote.circle",
-        "banknote.circle.fill",
-       
+        "wallet1",
+        "wallet2",
+        "wallet3",
+        "wallet4",
+        "wallet5",
+        "wallet6",
+        "wallet7",
+        "wallet8",
+        "wallet9"
+        
     ]
     
-//    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()),GridItem(.flexible())]
     
     var body: some View {
         VStack {
@@ -59,7 +71,7 @@ struct SheetNewWalletView: View {
                 ScrollView (.horizontal, showsIndicators: false) {
                     HStack (spacing: 10) {
                         ForEach(walletIcons, id: \.self) { walletIcon in
-                            Image(systemName: walletIcon)
+                            Image(walletIcon)
                                 .resizable()
                                 .frame(maxWidth: 35, maxHeight: 35)
                                 .scaledToFit()

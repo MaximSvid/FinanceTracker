@@ -12,12 +12,13 @@ struct ListWalletUniversalView: View {
     var body: some View {
         ZStack {
             HStack {
-                Image(systemName: wallet.image)
+                Image(wallet.image)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 45, height: 45)
                     .background(Color.gray.opacity(0.1))
-                    .clipShape(Circle())
+                    .clipShape(.buttonBorder)
+//                    .clipShape(Circle())
                     .padding(.leading)
                 
                 HStack {

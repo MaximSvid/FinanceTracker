@@ -31,3 +31,4 @@ struct AppNavigation: View {
     let container = try! ModelContainer(for: Wallet.self, Category.self, MyTransaction.self, configurations: configuration)
     AppNavigation().modelContainer(container)
 }
+ 

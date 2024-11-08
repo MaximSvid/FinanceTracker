@@ -11,8 +11,7 @@ struct AccountGeneralPivacyView: View {
     //Account
     @AppStorage("username") var username: String = ""
     @AppStorage("userEmail") var userEmail: String = ""
-    //    @AppStorage("userBirthday") var userBirthday: String = ""
-    //    @State private var birthday: Date = Date()
+    
     @AppStorage("phoneNumber") var phoneNumber: String = ""
     @AppStorage("password") var password: String = ""
     
