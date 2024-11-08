@@ -15,6 +15,7 @@ class Category: Identifiable {
     var name: String = ""
     var icon: String = ""
     
+    
     init(id: UUID, name: String, icon: String) {
         self.id = id
         self.name = name

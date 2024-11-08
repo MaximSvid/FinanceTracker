@@ -18,11 +18,40 @@ struct WalletDetailView: View {
                 .font(.headline)
             
             List(wallet.transactions) { transaction in
-                VStack(alignment: .leading) {
-                    Text("\(transaction.amount.formatted()) Euro")
-                    Text(transaction.category.name)
-                    Text(transaction.date, style: .date)
+                HStack() {
+                    VStack {
+                        Text(transaction.category.name)
+                            .font(.subheadline)
+                            .foregroundStyle(.gray)
+                    }
+                    
+                    Spacer()
+                    
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Text("\(transaction.amount.formatted()) Euro")
+                                .font(.footnote)
+                        }
+                       
+                        
+                        HStack {
+                            Spacer()
+                            
+                            Text(transaction.date, style: .time)
+                                .font(.caption)
+                                .foregroundStyle(.gray.opacity(0.7))
+                            
+                            Text(transaction.date, style: .date)
+                                .font(.caption)
+                                .foregroundStyle(.gray.opacity(0.7))
+                        }
+                        
+                       
+                    }
+                    Divider()
                 }
+//                .listRowSeparator(.hidden)
                 .swipeActions {
                     Button(role: .destructive) {
                         transaction.deleteTransaction()
@@ -31,6 +60,9 @@ struct WalletDetailView: View {
                     }
                 }
             }
+            .listStyle(PlainListStyle())
+            
+            Divider()
         }
     }
 }
