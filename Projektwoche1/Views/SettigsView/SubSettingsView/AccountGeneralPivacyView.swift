@@ -28,6 +28,12 @@ struct AccountGeneralPivacyView: View {
     
     var body: some View {
         
+        HStack {
+            Text("Settings")
+                .font(.title.bold())
+                .padding(.leading)
+        }
+        
         List {
             
             HStack {
@@ -56,15 +62,15 @@ struct AccountGeneralPivacyView: View {
                 Toggle("Dark Mode", isOn: $darkMode)
                 Toggle("Show Notifications", isOn: $showNotifications)
                 
-                Slider(value: $sliderValue, in: 0...100, step: 1) {
-                    Text("Volume")
-                } minimumValueLabel: {
-                    Text("0")
-                } maximumValueLabel: {
-                    Text("100")
-                }
-                
-                Text("Volume: \(Int(sliderValue))")
+//                Slider(value: $sliderValue, in: 0...100, step: 1) {
+//                    Text("Volume")
+//                } minimumValueLabel: {
+//                    Text("0")
+//                } maximumValueLabel: {
+//                    Text("100")
+//                }
+//                
+//                Text("Volume: \(Int(sliderValue))")
             }
             
         }

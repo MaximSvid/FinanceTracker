@@ -35,6 +35,7 @@ struct AddNewCategory: View {
         }
         .padding(.leading)
         .padding(.trailing)
+        .padding(.bottom)
         }
     }
 

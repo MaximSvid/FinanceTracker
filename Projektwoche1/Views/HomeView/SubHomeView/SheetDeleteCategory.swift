@@ -73,6 +73,7 @@ struct SheetDeleteCategory: View {
                                     action: {
                                         showAlert = false
                                         deleteAllCategories()
+                                        isSheetDeleteCategoryPresented.toggle()
                                     }
                                 )
                             

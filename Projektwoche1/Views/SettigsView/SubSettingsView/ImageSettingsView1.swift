@@ -18,12 +18,8 @@ struct ImageSettingsView1: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("Settings")
-                    .font(.title.bold())
-                    .padding(.leading)
-            }
-            Divider()
+            
+//            Divider()
             
             if let selectedImage = selectedImage {
                 selectedImage
