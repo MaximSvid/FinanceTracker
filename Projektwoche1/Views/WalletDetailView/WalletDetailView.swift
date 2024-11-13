@@ -15,7 +15,7 @@ struct WalletDetailView: View {
     var body: some View {
         VStack {
             Text ("Wallet: \(wallet.name)")
-                .font(.headline)
+                .font(.title.bold())
             
             List(wallet.transactions) { transaction in
                 HStack() {
