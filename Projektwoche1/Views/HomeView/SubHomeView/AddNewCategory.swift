@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct AddNewCategory: View {
+    @StateObject var homeViewModel: HomeViewModel
     @State var isSheetNewCategoryPresented: Bool = false
-    @Binding var categories: [Category]
+//    @Binding var categories: [Category]
     
     var body: some View {
         VStack {
@@ -28,7 +29,7 @@ struct AddNewCategory: View {
                     .cornerRadius(10)
             }
             .sheet(isPresented: $isSheetNewCategoryPresented) {
-                SheetAddNewCategory(isSheetNewCategoryPresented: $isSheetNewCategoryPresented, categories: $categories)
+                SheetAddNewCategory(isSheetNewCategoryPresented: $isSheetNewCategoryPresented, categories: $homeViewModel.categories)
                     .presentationDetents([.fraction(0.5)])
                     .presentationDragIndicator(.visible)
             }
@@ -41,5 +42,5 @@ struct AddNewCategory: View {
 
 
 #Preview {
-    AddNewCategory(categories: .constant([]))
+    AddNewCategory(homeViewModel: HomeViewModel())
 }

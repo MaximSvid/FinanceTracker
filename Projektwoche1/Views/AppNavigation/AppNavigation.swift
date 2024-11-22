@@ -9,10 +9,13 @@ import SwiftUI
 import SwiftData
 
 struct AppNavigation: View {
+    
+    @StateObject  var homeViewModel: HomeViewModel
+    
     var body: some View {
         TabView {
             Tab("Home", systemImage: "house") {
-                HomeView()
+                HomeView(homeViewModel: homeViewModel)
             }
             
             Tab("Wallet", systemImage: "creditcard") {
@@ -29,6 +32,6 @@ struct AppNavigation: View {
 #Preview {
     let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: Wallet.self, Category.self, MyTransaction.self, configurations: configuration)
-    AppNavigation().modelContainer(container)
+    AppNavigation(homeViewModel: HomeViewModel()).modelContainer(container)
 }
  

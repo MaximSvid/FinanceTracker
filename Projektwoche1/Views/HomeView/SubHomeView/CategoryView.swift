@@ -8,21 +8,13 @@
 import SwiftUI
 
 struct CategoryView: View {
-    
-    
-
-    
     var wallets: [Wallet]
-    @Binding var categories: [Category]
-    
+//    @Binding var categories: [Category]
+    @StateObject  var homeViewModel: HomeViewModel
     
     @State private var isHomeSheetOpen: Bool = false
     @State private var selectedCategory: Category?
 
-    
-    
-    
-    
     let columns = Array(repeating: GridItem(.flexible(), spacing: 24), count: 4)
     
     var body: some View {
@@ -30,7 +22,7 @@ struct CategoryView: View {
         
         ScrollView {
             LazyVGrid(columns: columns, spacing: 24) {
-                ForEach(categories, id: \.self) { category in
+                ForEach(homeViewModel.categories, id: \.self) { category in
                     Circle()
                         .fill(Color.white)
                         .shadow(color: .gray.opacity(0.3), radius: 10)
@@ -72,5 +64,5 @@ struct CategoryView: View {
 }
 
 #Preview {
-    CategoryView(wallets: [Wallet(name: "", image: "", balance: 0.0)], categories: .constant([]))
+    CategoryView(wallets: [Wallet(name: "", image: "", balance: 0.0)], homeViewModel: HomeViewModel())
 }

@@ -10,9 +10,11 @@ import SwiftData
 
 @main
 struct Projektwoche1App: App {
+    @StateObject var homeViewModel = HomeViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            AppNavigation()
+            AppNavigation(homeViewModel: homeViewModel)
                 .modelContainer(for: [
                     Wallet.self,
                     Category.self,

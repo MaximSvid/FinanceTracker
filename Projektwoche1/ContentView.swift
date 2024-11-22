@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var homeViewModel: HomeViewModel
     var body: some View {
-        AppNavigation()
+        AppNavigation(homeViewModel: homeViewModel)
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(homeViewModel: HomeViewModel())
 }
