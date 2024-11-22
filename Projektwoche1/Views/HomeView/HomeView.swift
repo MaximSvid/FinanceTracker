@@ -10,8 +10,9 @@ import SwiftData
 
 struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
-    @State private var isInitialized = false
     @Query private var wallets: [Wallet]
+    
+    @State private var isInitialized = false
     @State private var isSheetDeleteCategoryPresented: Bool = false
     @State private var categories: [Category] = [
             Category(id: UUID(), name: "Food", icon: "fork.knife"),

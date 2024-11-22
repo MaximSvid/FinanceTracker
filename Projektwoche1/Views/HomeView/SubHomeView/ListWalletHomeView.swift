@@ -54,8 +54,6 @@ struct ListWalletHomeView: View {
         }
         .shadow(color: .gray, radius: 10, x: 0, y: 5)
         .padding(.leading)
-//        .padding(.top)
-//        .padding(.bottom)
         Divider()
     }
 }

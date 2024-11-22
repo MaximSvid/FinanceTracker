@@ -9,26 +9,26 @@ import SwiftUI
 import SwiftData
 
 struct AllMoney: View {
-    @StateObject private var homeViewModel: HomeViewModel
+    @StateObject private var allMoneyViewModel: AllMoneyViewModel
     
     @Environment(\.modelContext) private var context
     var wallet: [Wallet]
     
     init(wallet: [Wallet], context: ModelContext) {
         self.wallet = wallet
-        self._homeViewModel = StateObject(wrappedValue: HomeViewModel(context: context))
+        self._allMoneyViewModel = StateObject(wrappedValue: Projektwoche1.AllMoneyViewModel(context: context))
     }
     
     var body: some View {
         ZStack {
-            if homeViewModel.totalAmount == 0 {
+            if allMoneyViewModel.totalAmount == 0 {
                 HStack {
                     Text("Set the amount")
                         .font(.headline)
                         .padding()
                     
                     Button(action: {
-                        homeViewModel.isPresented.toggle()
+                        allMoneyViewModel.isPresented.toggle()
                     }) {
                         Image(systemName: "pencil")
                             .font(.title2)
@@ -45,13 +45,13 @@ struct AllMoney: View {
             } else {
                 let currentBalance = wallet.reduce(0) { $0 + $1.balance }
                 let totalOperationsAmount = wallet.flatMap { $0.transactions }.reduce(0) { $0 + $1.amount }
-                let remainingAmount = homeViewModel.totalAmount - totalOperationsAmount
+                let remainingAmount = allMoneyViewModel.totalAmount - totalOperationsAmount
                 
 
                 
                 HStack {
                     if remainingAmount > 0 {
-                        ProgressView(value: remainingAmount, total: homeViewModel.totalAmount) {
+                        ProgressView(value: remainingAmount, total: allMoneyViewModel.totalAmount) {
                             Text("Total amount: \(currentBalance, specifier: "%.2f") Euro")
                             Divider()
                             Text("Planned monthly expenses: \(remainingAmount, specifier: "%.2f") Euro")
@@ -61,7 +61,7 @@ struct AllMoney: View {
                         Spacer()
                         
                         Button(action: {
-                            homeViewModel.isPresented.toggle()
+                            allMoneyViewModel.isPresented.toggle()
                         }) {
                             Image(systemName: "pencil")
                                 .font(.title2)
@@ -78,7 +78,7 @@ struct AllMoney: View {
                             .padding()
                         
                         Button(action: {
-                            homeViewModel.isPresented.toggle()
+                            allMoneyViewModel.isPresented.toggle()
                         }) {
                             Image(systemName: "pencil")
                                 .font(.title)
@@ -91,6 +91,7 @@ struct AllMoney: View {
                     
                 }
                 .frame(width: .infinity, height: 50)
+                .padding()
                 .onAppear {
 
                 }
@@ -99,7 +100,7 @@ struct AllMoney: View {
         .frame(maxWidth: .infinity)
         .background(RoundedRectangle(cornerRadius: 10).fill(.white))
         .shadow(color: .gray.opacity(0.3), radius: 10)
-        .sheet(isPresented: $homeViewModel.isPresented) {
+        .sheet(isPresented: $allMoneyViewModel.isPresented) {
             VStack {
                 Text("Enter your planned monthly expenses:")
                     .font(.title)
@@ -112,7 +113,7 @@ struct AllMoney: View {
                     }
                     .padding()
                     
-                    TextField("Enter amount", text: $homeViewModel.sumString)
+                    TextField("Enter amount", text: $allMoneyViewModel.sumString)
                         .keyboardType(.decimalPad)
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 10)
@@ -125,8 +126,8 @@ struct AllMoney: View {
                     
                     VStack {
                         Button {
-                            homeViewModel.saveNewSum()
-                            homeViewModel.isPresented.toggle()
+                            allMoneyViewModel.saveNewSum()
+                            allMoneyViewModel.isPresented.toggle()
                         } label: {
                             Text ("Save")
                                 .frame(maxWidth: .infinity)
