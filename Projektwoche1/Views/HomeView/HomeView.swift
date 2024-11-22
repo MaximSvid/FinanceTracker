@@ -39,7 +39,7 @@ struct HomeView: View {
     var body: some View {
         VStack {
             SheetDeleteCategory(isSheetDeleteCategoryPresented: $isSheetDeleteCategoryPresented, categories: $categories)
-            AllMoney(wallet: wallets)
+            AllMoney(wallet: wallets, context: modelContext)
             ListWalletHomeView(wallet: wallets)
             CategoryView(wallets: wallets, categories: $categories)
             Spacer()
