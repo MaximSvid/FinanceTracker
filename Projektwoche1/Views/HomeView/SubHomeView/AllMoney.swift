@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AllMoney: View {
+    @ObservedObject private var homeViewModel: HomeViewModel
+    
     @Environment(\.modelContext) private var context
     @State private var isPresented: Bool = false
     @State private var sumString: String = ""
@@ -28,13 +30,15 @@ struct AllMoney: View {
                         isPresented.toggle()
                     }) {
                         Image(systemName: "pencil")
-                            .font(.title)
+                            .font(.title2)
                             .frame(width: 10, height: 10)
                             .padding()
                             .background(RoundedRectangle(cornerRadius: 10).fill(.green))
                             .foregroundStyle(.white)
+                            .shadow(radius: 3)
                     }
                 }
+                .frame(width: .infinity, height: 50)
                 
                 
             } else {
